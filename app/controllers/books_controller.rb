@@ -13,8 +13,6 @@ class BooksController < ApplicationController
   def new
     @book = Book.new
     @book.author_id = current_author.id
-
-
   end
 
   def create
@@ -30,15 +28,11 @@ class BooksController < ApplicationController
 
   def edit
     @book = Book.find params[:id]
-
-
   end
 
   def show
     @book = Book.find params[:id]
 
-
-    # raise 'error'
   end
 
   def update

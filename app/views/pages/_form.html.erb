@@ -1,0 +1,48 @@
+<canvas resize="true" id="myCanvas" style="background:black"></canvas>
+<!-- Load external PaperScript and associate it with myCanvas -->
+<script type="text/paperscript" src="/assets/image.pjs" canvas="myCanvas">
+  var getImage = function({
+    console.log("getImage");
+  });
+</script>
+
+<%= form_for [@book, @page] do |f|  %>
+
+<!-- <form id="myform" name="myform" action="/books/:book_id/pages" method="post">
+    <input type="text"  name="text" id="text" >
+    <input type="hidden" name="image" id="image">
+    <button  onclick="savetest()" class="btn btn-primary">Save</button>
+</form> -->
+
+
+
+
+<%# content_for :javascript_includes do %>
+  <%#= javascript_include_tag "image.js" %>
+<div class="image">
+    <%#f.label :image, "Image"%>
+    <%# f.text_area :image, :include_blank => true,  :class => "form-control" %>
+  </div>
+<%# end %>
+
+<div class="story">
+    <%#= f.label :text, "Story"%>
+    <%#= f.text_area :text, :include_blank => true,  :class => "form-control", :rows => "3" %>
+  </div>
+<script type="text/paperscript">
+debugger
+  var paperjson = myCanvas.getContext('2d');
+  alert(canvas.toDataURL());
+</script>
+<!-- something like below format to save data in json format -->
+
+<%= button_to "Create", { action: "create" }, remote: true, form: { "data-type" => "json" } %>
+
+<%# raise 'err' %>
+
+    <%#= hidden_field_tag 'paperjson' %>
+    <%#= f.submit "Save Story"%>
+<%# end %>
+
+
+

@@ -1,0 +1,9 @@
+<h2>Title: <%= @book.title %></h2>
+<h2>Author: <%= @book.author.name %></h2>
+
+<ul>
+  <li><%= link_to 'Back to bookshelf', books_path  %></li>
+  <li><%= link_to('Edit title', edit_book_path(@book.id)) %></li>
+  <li><%= link_to('Delete title', @book, method: :delete, data: { confirm: 'Are you sure?' }) %></li>
+  <li><%= link_to('Continue to story part', new_book_page_path(:book_id => @book.id)) %></li>
+</ul>
